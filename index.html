@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To My Queen Beth ❤️</title>
+<meta name="description" content="A love letter, built in code, for Bethany.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600;700&family=Patrick+Hand&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ambient animated background -->
+<div class="bg-gradient" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+<div class="orb orb-3" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- Navigation -->
+<button class="nav-toggle" aria-label="Toggle menu">☰</button>
+<nav class="floating-nav" aria-label="Primary">
+  <a href="#home">Home</a>
+  <a href="#memories">Our Memories</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="#music">Music</a>
+  <a href="#letters">Love Notes</a>
+  <a href="#future">Future</a>
+  <a href="#one-more-thing">One More Thing</a>
+</nav>
+
+<!-- ============================================================
+     HERO / LANDING
+     ============================================================ -->
+<header class="hero" id="home">
+  <div class="hero-slideshow" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">a small corner of the internet, just for you</span>
+    <h1 class="hero-title">To My Queen Beth ❤️</h1>
+    <p class="hero-text">Every moment with you has become one of my favourite memories.</p>
+    <a href="#memories" class="btn-open-heart">Open My Heart</a>
+  </div>
+  <div class="scroll-hint">scroll down, my love ↓</div>
+</header>
+
+<!-- ============================================================
+     OUR MEMORIES — counter + rotating messages
+     ============================================================ -->
+<section class="section" id="memories">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow">still counting</span>
+      <h2 class="section-title">We've Been Making Memories For...</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">Every second on this clock is one I'd choose again.</p>
+    </div>
+
+    <div class="counter-wrap reveal">
+      <div class="counter-cell"><div class="counter-num" data-unit="years">0</div><div class="counter-label">Years</div></div>
+      <div class="counter-cell"><div class="counter-num" data-unit="months">0</div><div class="counter-label">Months</div></div>
+      <div class="counter-cell"><div class="counter-num" data-unit="days">0</div><div class="counter-label">Days</div></div>
+      <div class="counter-cell"><div class="counter-num" data-unit="hours">00</div><div class="counter-label">Hours</div></div>
+      <div class="counter-cell"><div class="counter-num" data-unit="minutes">00</div><div class="counter-label">Minutes</div></div>
+      <div class="counter-cell"><div class="counter-num" data-unit="seconds">00</div><div class="counter-label">Seconds</div></div>
+    </div>
+
+    <div class="message-carousel reveal" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Polaroid memory wall (corkboard)
+     ============================================================ -->
+<section class="section" id="wall">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow">our corkboard</span>
+      <h2 class="section-title">Twenty Little Moments I Kept</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">Tap a polaroid to relive it.</p>
+    </div>
+
+    <div class="corkboard reveal">
+      <div class="fairy-lights" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="polaroid-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Memory modal -->
+<div class="modal-overlay" role="dialog" aria-modal="true" aria-label="Memory detail">
+  <div class="modal-card">
+    <div class="modal-media"></div>
+    <h3 class="modal-title"></h3>
+    <div class="modal-date"></div>
+    <p class="modal-caption"></p>
+    <button class="modal-close">Close</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     MUSIC PAGE
+     ============================================================ -->
+<section class="section" id="music">
+  <div class="section-inner" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow">our soundtrack</span>
+      <h2 class="section-title">Songs That Sound Like Us</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">Press play — drop your two favourites into <code>/music/song1.mp3</code> and <code>/music/song2.mp3</code>.</p>
+    </div>
+
+    <div class="player-card reveal">
+      <audio preload="metadata"></audio>
+      <div class="vinyl-wrap">
+        <div class="vinyl"><div class="vinyl-label">♡</div></div>
+        <div class="vinyl-arm"></div>
+      </div>
+      <div class="track-title">Our Song</div>
+      <div class="track-sub">Track 1 · for the both of us</div>
+
+      <div class="equalizer paused" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="seek-row">
+        <span class="cur-time">0:00</span>
+        <input type="range" class="seek-bar" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+        <span class="dur-time">0:00</span>
+      </div>
+
+      <div class="player-controls">
+        <button class="prev-btn" aria-label="Previous track">⏮</button>
+        <button class="play-btn" aria-label="Play or pause">▶</button>
+        <button class="next-btn" aria-label="Next track">⏭</button>
+      </div>
+
+      <div class="volume-row">
+        <span>🔈</span>
+        <input type="range" class="volume-bar" min="0" max="1" value="0.7" step="0.01" aria-label="Volume">
+        <span>🔊</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CS TERMINAL
+     ============================================================ -->
+<section class="section" id="terminal-section">
+  <div class="section-inner" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow">for the CS student in me</span>
+      <h2 class="section-title">A Terminal, Because I Fell For You In Code Too</h2>
+    </div>
+    <div class="terminal reveal">
+      <div class="terminal-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="terminal-title">beth@forever: ~</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+    <p class="terminal-hint reveal">scroll into view to run the commands</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     LOVE NOTES — envelopes
+     ============================================================ -->
+<section class="section" id="letters">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow">open whenever you need to</span>
+      <h2 class="section-title">Five Letters For Five Kinds Of Days</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;">Click an envelope to open it. Click again to close.</p>
+    </div>
+
+    <div class="envelope-grid reveal">
+      <article class="envelope" data-letter="sad">
+        <div class="envelope-body"><span class="envelope-label">Open when<br>you're sad</span></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">❤</div>
+      </article>
+      <article class="envelope" data-letter="miss">
+        <div class="envelope-body"><span class="envelope-label">Open when<br>you miss me</span></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">❤</div>
+      </article>
+      <article class="envelope" data-letter="stressed">
+        <div class="envelope-body"><span class="envelope-label">Open when<br>you're stressed</span></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">❤</div>
+      </article>
+      <article class="envelope" data-letter="sleep">
+        <div class="envelope-body"><span class="envelope-label">Open when<br>you can't sleep</span></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">❤</div>
+      </article>
+      <article class="envelope" data-letter="anytime">
+        <div class="envelope-body"><span class="envelope-label">Open<br>anytime</span></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">❤</div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FUTURE — date invitation
+     ============================================================ -->
+<section class="section" id="future">
+  <div class="section-inner" style="display:flex; justify-content:center;">
+    <div class="invite-card reveal">
+      <p class="invite-question">
+        My Queen Beth...<br>
+        Will you go on another date with me?
+      </p>
+      <div class="invite-buttons">
+        <button class="btn-yes">YES ❤️</button>
+        <button class="btn-yes">ABSOLUTELY ❤️</button>
+      </div>
+      <div class="invite-result">
+        <h3>Best Decision Ever ❤️</h3>
+        <p>I can't wait to make another beautiful memory with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ONE MORE THING — finale
+     ============================================================ -->
+<section class="finale" id="one-more-thing">
+  <div class="finale-stars" aria-hidden="true"></div>
+  <p class="finale-line">Out of every possible timeline...</p>
+  <p class="finale-line script">I'm endlessly grateful I found you.</p>
+  <p class="finale-line">I love you more than words, code, or algorithms could ever explain.</p>
+  <p class="finale-line script">My Queen Beth...</p>
+  <p class="finale-line">Thank you for choosing me.</p>
+  <button class="glow-heart" aria-label="Reveal final message">❤</button>
+  <p class="finale-final">I'll keep choosing you, every single day. ❤️</p>
+</section>
+
+<p class="made-with-love">built line by line, just for Beth.</p>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — For My Queen Beth</title>
+<meta name="description" content="A luxury photo album of us.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600;700&family=Patrick+Hand&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-gradient" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<button class="nav-toggle" aria-label="Toggle menu">☰</button>
+<nav class="floating-nav" aria-label="Primary">
+  <a href="index.html#home">Home</a>
+  <a href="index.html#memories">Our Memories</a>
+  <a href="gallery.html" class="active">Gallery</a>
+  <a href="index.html#music">Music</a>
+  <a href="index.html#letters">Love Notes</a>
+  <a href="index.html#future">Future</a>
+  <a href="index.html#one-more-thing">One More Thing</a>
+</nav>
+
+<div class="gallery-page-header reveal in-view">
+  <span class="eyebrow">a luxury little photo album</span>
+  <h1 class="section-title">Eight Moments, On Repeat</h1>
+  <p class="section-sub" style="margin:0 auto;">Drop your favourite eight photos into <code>/images/gallery1.jpg</code> through <code>gallery8.jpg</code>. Use the arrows, swipe, or your keyboard.</p>
+</div>
+
+<div class="gallery-stage">
+  <div class="morph-frame" tabindex="0" aria-label="Photo slideshow">
+    <button class="morph-nav-btn morph-prev" aria-label="Previous photo">‹</button>
+    <button class="morph-nav-btn morph-next" aria-label="Next photo">›</button>
+  </div>
+  <div class="morph-indicators" aria-hidden="true"></div>
+</div>
+
+<div class="gallery-thumbs" aria-label="Photo thumbnails"></div>
+
+<a href="index.html#wall" class="gallery-back">← back to our story</a>
+
+<script src="script.js"></script>
+</body>
+</html>
